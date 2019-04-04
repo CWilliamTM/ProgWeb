@@ -1,0 +1,10 @@
+p {
+	font-family: serif;
+	padding: 10px;
+	background: lightgrey;
+	border: 10px solid black;
+	border-top-right-radius: 30px;
+	border-top-left-radius: 10px;
+	border-bottom-left-radius: 30px;
+	border-bottom-right-radius: 10px;
+}
