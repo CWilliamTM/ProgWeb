@@ -1,0 +1,27 @@
+body {
+	background-color: lightblue;
+	background-image: url(roma.jpg);	
+	background-size: 1424px 1050px;
+	background-repeat: no-repeat;
+	background-position: 50% 0%;
+}
+
+p {
+	font-family: sans-serif;
+	padding: 20px;
+	margin: 200px 300px;
+	background: rgba(255,255,255,0.7);
+	border: 10px solid #97694F;	
+	box-shadow:2px 2px 4px 2px gray inset;
+	border-top-right-radius: 30px;
+	border-top-left-radius: 30px;
+	border-bottom-left-radius: 30px;
+	border-bottom-right-radius: 30px;
+	max-width: 250px;
+	text-align: center;
+}
+
+#st{
+	font-size: 20px;
+	position: center;
+}
