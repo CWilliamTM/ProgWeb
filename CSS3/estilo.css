@@ -1,0 +1,5 @@
+div{ position: relative; }
+.blue { width:100px;height:200px;background-color:blue; }
+.yellow { width:100px;height:150px;background-color:yellow; right: -100px; top: -200px}
+.red { width:100px;height:150px;background-color:red; right: -200px; top: -350px}
+.green { width:200px;height:50px;background-color:green; right: -100px; top: -350px}
