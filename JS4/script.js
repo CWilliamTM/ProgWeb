@@ -35,13 +35,28 @@ class integerSet{
 		var string = "";
 		for(var i=0;i<=this.max;++i) 
 			if(this.arr[i] == true) 
-				string += this.arr[i];
+				string += i + " ";
 		return string;
 	}
 }
 
 
-v = new IntegerSet(10);
+v = new integerSet(10);
 v.inserir(1);
 v.inserir(5);
-v.getString();
+console.log(v.getString());
+w = new integerSet(20);
+w.inserir(1);
+w.inserir(3);
+w.inserir(6);
+w.inserir(15);
+console.log(w.getString());
+w.uniao(v);
+console.log(w.getString());
+w.intersecao(v);
+console.log(w.getString());
+v.inserir(9);
+w.diferenca(v);
+console.log(w.getString());
+v.excluir(1);
+console.log(v.getString());
