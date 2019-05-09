@@ -1,0 +1,27 @@
+<html> 
+	<head> 
+		<meta charset="utf-8" /> 
+		<style> 
+			.espaco { 
+				margin-left: 10px;
+			}
+		</style>
+	</head> 
+
+	<body>
+		<label for="raio">Informe o raio</label>
+		<input id="raio" class="espaco" type="text"> <br>
+		<label for="area">Área do círculo</label>
+		<input id="area" class="espaco" type="text"> <br>	
+		<label for="circunferencia">Circunferência</label>
+		<input id="circunferencia" class="espaco" type="text"> <br>
+		<button id="btn" onclick="clique()">Ok</button> 
+	</body> 
+	<script>
+		function clique(){ 
+			var raio = parseFloat(document.getElementById("raio").value);
+			document.getElementById("area").value = 3.14*(raio*raio);
+			document.getElementById("circunferencia").value = 2.0*3.14*raio;
+		}
+	</script>
+</html>
