@@ -1,0 +1,12 @@
+body { 
+	height: 200px;
+	background: beige; 
+}
+
+.dot { 
+	height: 10px; 
+	width: 10px; 
+	border-radius: 4px; 
+	background: blue; 
+	position: absolute;
+}

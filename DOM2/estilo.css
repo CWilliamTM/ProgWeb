@@ -1,0 +1,19 @@
+button {
+	position: relative;
+	float: left;
+}
+
+.barra {
+	float: left;
+	margin: 6px;
+	background-color: red;
+}
+
+#graph {
+	transform: rotate(180deg);
+    position: relative;
+    float: left;
+    clear: both;
+    display: flex;
+    flex-direction: row-reverse;
+}
