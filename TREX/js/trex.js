@@ -2,11 +2,14 @@
    const FPS = 300;
    const PROB_NUVEM = 2;
    var gameLoop;
+   var status; //0: parado//1: rodando
    var deserto; 
    var dino;
    var nuvens = [];
+   var placar = [];
 
    window.addEventListener("keydown", function(e){
+      if(e.key == "ArrowUp" && status == 0){status = 1; dino.element.style.backgroundPositionX = dino.sprites[0];}
       if(e.key == "ArrowUp" && dino.status == 0) dino.status = 1;
       if(e.key == "ArrowDown" && dino.status == 0){dino.status = 3; dino.element.style.width = "60px";}
    });
@@ -16,9 +19,11 @@
    });
 
    function init (){
+      status = 0;
       gameLoop = setInterval(run, 1000/FPS);
       deserto = new Deserto();
       dino = new Dino();
+      for(var i=0;i<5;i++)placar[i] = new Numero(i);
    }
 
    function Deserto(){
@@ -42,7 +47,7 @@
       this.sprites = ["-766px","-810px","-679px","-939px","-999px"];
       this.element = document.createElement("div");
       this.element.className = "dino";
-      this.element.style.backgroundPositionX = this.sprites[0];
+      this.element.style.backgroundPositionX = this.sprites[2];
       this.element.style.bottom = "0px";
       this.element.style.width = "42px";
       deserto.element.appendChild(this.element);
@@ -78,18 +83,38 @@
       this.element.style.right = (parseInt(this.element.style.right)+1) + "px";
    }
 
+   function Numero(r){
+      this.nums = ["-484px","-494px","-504px","-514px","-524px","-534px","-544px","-554px","-564px","-574px"];
+      this.element = document.createElement("div");
+      this.element.className = "numero";
+      this.element.style.right = "0px";
+      this.element.style.backgroundPositionX = this.nums[0];
+      this.element.style.right = r*10 + "px";
+      deserto.element.appendChild(this.element);
+   }
+
+   Numero.prototype.mudar = function(){
+      this.element.style.backgroundPositionX = 
+      (this.element.style.backgroundPositionX == this.nums[0])?this.element.style.backgroundPositionX = this.nums[1]:this.element.style.backgroundPositionX = this.nums[0];
+   }
+
    function run () {
-      deserto.mover();
-      dino.correr();
-      if(Math.random() * 1000 <= PROB_NUVEM) nuvens.push(new Nuvem());
-      nuvens.forEach(function(n){
-         n.mover();
-         if(parseInt(n.element.style.right) > 2000){
-            var head = nuvens.shift();
-            deserto.element'.removeChild(head);
-         }
-      });
-      //Em caso de game over //clearInterval(gameLoop)
+      if(status == 1){
+         deserto.mover();
+         dino.correr();
+         if(Math.random() * 1000 <= PROB_NUVEM) nuvens.push(new Nuvem());
+         nuvens.forEach(function(n){
+            n.mover();
+            if(parseInt(n.element.style.right) > 1000){
+               var head = nuvens.shift();
+               deserto.element.removeChild(head.element);
+            }
+         });
+         placar.forEach(function(n){
+            n.mudar;
+         });
+         //Em caso de game over //clearInterval(gameLoop)
+      }
    }
 
    init();

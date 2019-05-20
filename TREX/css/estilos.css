@@ -29,3 +29,11 @@
    position: absolute;
    z-index: 1;
 }
+
+.numero{
+   width: 10px;
+   height: 11px;
+   background-image: url(sprites.png);
+   background-position-y: -2px; 
+   position: absolute;
+}
