@@ -3,6 +3,7 @@
    const PROB_NUVEM = 2;
    var gameLoop;
    var status; //0: parado//1: rodando
+   var count;
    var deserto; 
    var dino;
    var nuvens = [];
@@ -11,7 +12,7 @@
    window.addEventListener("keydown", function(e){
       if(e.key == "ArrowUp" && status == 0){status = 1; dino.element.style.backgroundPositionX = dino.sprites[0];}
       if(e.key == "ArrowUp" && dino.status == 0) dino.status = 1;
-      if(e.key == "ArrowDown" && dino.status == 0){dino.status = 3; dino.element.style.width = "60px";}
+      if(e.key == "ArrowDown" && status == 1 && dino.status == 0){dino.status = 3; dino.element.style.width = "60px";}
    });
 
    window.addEventListener("keyup", function(e){
@@ -20,7 +21,8 @@
 
    function init (){
       status = 0;
-      gameLoop = setInterval(run, 1000/FPS);
+      count = 0;
+      gameLoop = setInterval(run, 1);
       deserto = new Deserto();
       dino = new Dino();
       for(var i=0;i<5;i++)placar[i] = new Numero(i);
@@ -94,8 +96,17 @@
    }
 
    Numero.prototype.mudar = function(){
-      this.element.style.backgroundPositionX = 
-      (this.element.style.backgroundPositionX == this.nums[0])?this.element.style.backgroundPositionX = this.nums[1]:this.element.style.backgroundPositionX = this.nums[0];
+      var a = this.element.style.backgroundPositionX;
+      if(a == this.nums[0]) this.element.style.backgroundPositionX = this.nums[1];
+      else if(a == this.nums[1]) this.element.style.backgroundPositionX = this.nums[2];
+      else if(a == this.nums[2]) this.element.style.backgroundPositionX = this.nums[3];
+      else if(a == this.nums[3]) this.element.style.backgroundPositionX = this.nums[4];
+      else if(a == this.nums[4]) this.element.style.backgroundPositionX = this.nums[5];
+      else if(a == this.nums[5]) this.element.style.backgroundPositionX = this.nums[6];
+      else if(a == this.nums[6]) this.element.style.backgroundPositionX = this.nums[7];
+      else if(a == this.nums[7]) this.element.style.backgroundPositionX = this.nums[8];
+      else if(a == this.nums[8]) this.element.style.backgroundPositionX = this.nums[9];
+      else if(a == this.nums[9]) this.element.style.backgroundPositionX = this.nums[0];
    }
 
    function run () {
@@ -110,12 +121,22 @@
                deserto.element.removeChild(head.element);
             }
          });
-         placar.forEach(function(n){
-            n.mudar;
-         });
+         count++;
+         if(count%30 == 0){
+            placar[0].mudar();
+            if(placar[0].element.style.backgroundPositionX == placar[0].nums[0]){
+               placar[1].mudar();
+               if(placar[1].element.style.backgroundPositionX == placar[0].nums[0]){
+                  placar[2].mudar();
+                  if(placar[2].element.style.backgroundPositionX == placar[0].nums[0]){
+                     placar[3].mudar();
+                     if(placar[3].element.style.backgroundPositionX == placar[0].nums[0]) placar[4].mudar();
+                  } 
+               } 
+            } 
+         }
          //Em caso de game over //clearInterval(gameLoop)
       }
    }
-
    init();
 })();
