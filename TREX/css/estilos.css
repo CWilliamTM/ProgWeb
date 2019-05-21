@@ -46,3 +46,12 @@
    position: absolute;
    z-index: 1;
 }
+
+.inimigo{
+   width: 46px;
+   height: 42px;
+   background-image: url(sprites.png);
+   background-position-y: -1px; 
+   position: absolute;
+   z-index: 3;
+}
