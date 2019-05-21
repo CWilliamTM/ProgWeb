@@ -18,7 +18,7 @@
    background-image: url(sprites.png);
    background-position-y: -4px;
    position: absolute;
-   z-index: 3;
+   z-index: 2;
 }
 
 .nuvem{
@@ -27,7 +27,15 @@
    background-image: url(sprites.png);
    background-position: -85px -2px;
    position: absolute;
-   z-index: 2;
+   z-index: 0;
+}
+
+.cactus{
+   height: 36px;
+   background-image: url(sprites.png);
+   background-position: -228px -2px;
+   position: absolute;
+   z-index: 3;
 }
 
 .numero{
