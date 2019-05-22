@@ -1,0 +1,7 @@
+Hoisting e quando se move as declaracoes para o inicio do escopo
+Isso permitira que use uma variavel antes de ela ter sido inicializada
+
+ex: 
+    exemplo = "teste";
+    console.log(exemplo);
+    var exemplo;
