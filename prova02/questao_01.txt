@@ -1,0 +1,10 @@
+linha 04: <comment>, comentarios em html devem ser feitos com <!-- e -->
+
+linha 10 e 11: foram trocas as palavras chave, o certo seria -
+#para {
+    width: 400px;
+}
+
+linha 14: nao é aberta a tag <body> para colocar o conteudo da pagina, deve-se abrir <body> e fechar<\body> ao final
+
+linha 17: para colocar o texto em negrito deve-se usar a tag <b><\b>
