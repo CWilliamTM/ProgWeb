@@ -17,7 +17,7 @@
 	});
 
 	window.addEventListener("keyup", function(e){
-		if(e.key == "ArrowDown"){dino.status = 0; dino.element.style.width = "42px";}
+		if(e.key == "ArrowDown" && dino.status == 3){dino.status = 0; dino.element.style.width = "42px";}
 	});
 
 	function init (){
@@ -75,13 +75,13 @@
 		}
 	}
 
-	function Inimigo(){
+	function Inimigo(t){
 		this.status = 0;
-		this.sprites = ["-133px","-180px"];
+		this.sprites = ["-133px","-180px","110px","60px","5px"];
 		this.element = document.createElement("div");
 		this.element.className = "inimigo";
 		this.element.style.backgroundPositionX = this.sprites[0];
-		this.element.style.top = Math.floor(Math.random() * 120) + "px";
+		this.element.style.top = this.sprites[t];
 		this.element.style.right = "0px";
 		deserto.element.appendChild(this.element);
 	}
@@ -104,13 +104,16 @@
 		this.element.style.right = (parseInt(this.element.style.right)+1) + "px";
 	}
 
-	function Cactus(){
-		this.c = ["17px", "34px", "51px", "68px"];
+	function Cactus(p){
+		this.c = ["-226px","17px", "-244px", "34px", "-278px", "51px", "-331px", "25px", "-356px", "50px", "-406px", "75px"];
 		this.element = document.createElement("div");
 		this.element.className = "cactus";
 		this.element.style.bottom = "0px";
 		this.element.style.right = "0px";
-		this.element.style.width = this.c[0];
+		if(p < 5) this.element.style.height = "34px";
+		else this.element.style.height = "50px";
+		this.element.style.width = this.c[p+1];
+		this.element.style.backgroundPositionX = this.c[p];
 		deserto.element.appendChild(this.element);
 	}
 
@@ -159,12 +162,35 @@
    }
 
 	function obstaculos(){
-		var r = Math.random() * 10;
-		if(r < 2){
-			cactus.push(new Cactus());
-		}
-		else if(r > 8){
-			inimigos.push(new Inimigo());
+		if(status == 1){
+			var r = Math.random() * 20;
+			if(r < 1){
+				cactus.push(new Cactus(0));
+			}
+			else if(r < 2){
+				cactus.push(new Cactus(2));
+			}
+			else if(r < 3){
+				cactus.push(new Cactus(4));
+			}
+			else if(r < 4){
+				cactus.push(new Cactus(6));
+			}
+			else if(r < 5){
+				cactus.push(new Cactus(8));
+			}
+			else if(r < 6){
+				cactus.push(new Cactus(10));
+			}
+			else if(r < 7){
+				inimigos.push(new Inimigo(2));
+			}
+			else if(r < 8){
+				inimigos.push(new Inimigo(3));
+			}
+			else if(r < 9){
+				inimigos.push(new Inimigo(4));
+			}
 		}
 	}
 
