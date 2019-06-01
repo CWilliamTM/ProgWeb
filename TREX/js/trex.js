@@ -1,6 +1,7 @@
 (function(){
 	const FPS = 300;
 	const PROB_NUVEM = 2;
+	var DIFICULDADE;
 	var gameLoop;
 	var status; //0: parado//1: rodando
 	var deserto; 
@@ -21,10 +22,12 @@
 	});
 
 	function init (){
+		DIFICULDADE = 20;
 		status = 0;
 		gameLoop = setInterval(run, 1);
 		setInterval(mplacar, 100);
 		setInterval(obstaculos, 1000);
+		setInterval(function(){if(DIFICULDADE>9)DIFICULDADE--;}, 100000);
 		deserto = new Deserto();
 		dino = new Dino();
 		for(var i=0;i<5;i++)placar[i] = new Numero(i);
@@ -163,7 +166,7 @@
 
 	function obstaculos(){
 		if(status == 1){
-			var r = Math.random() * 20;
+			var r = Math.random() * DIFICULDADE;
 			if(r < 1){
 				cactus.push(new Cactus(0));
 			}
