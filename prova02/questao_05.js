@@ -1,3 +1,6 @@
+// David: Faltou os métodos get e set para cada atributo
+// Nota: 1.5
+
 class Venda{
 	constructor(id,qtd,preco){
 		this.id = id;

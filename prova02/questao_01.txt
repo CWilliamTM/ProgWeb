@@ -1,3 +1,6 @@
+David: Todos os erros foram reportados corretamente, com exceção do da linha 17.
+Nota: 1.5
+
 linha 04: <comment>, comentarios em html devem ser feitos com <!-- e -->
 
 linha 10 e 11: foram trocas as palavras chave, o certo seria -

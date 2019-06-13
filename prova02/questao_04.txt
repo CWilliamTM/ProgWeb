@@ -1,3 +1,6 @@
+David: Hoisting definido corretamente. Código de exemplo correto.
+Nota: 2.0
+
 Hoisting e quando se move as declaracoes para o inicio do escopo
 Isso permitira que use uma variavel antes de ela ter sido inicializada
 
